@@ -1,24 +1,35 @@
-import math
-import random
+import json
 
-# Built-in math functions
+# Convert JSON string to Python
 
-print(min(5, 10, 25))
-print(max(5, 10, 25))
-print(abs(-7.25))
-print(pow(4, 3))
+x = '{ "name":"John", "age":30, "city":"New York"}'
 
-# math module
+y = json.loads(x)
 
-print(math.sqrt(64))
-print(math.ceil(1.4))
-print(math.floor(1.4))
-print(math.pi)
+print(y["name"])
 
-# random module
 
-print(random.random())
-print(random.randint(1, 10))
+# Convert Python to JSON
 
-fruits = ["apple", "banana", "cherry"]
-print(random.choice(fruits))
+mydict = {
+  "name": "Anna",
+  "age": 25,
+  "city": "London"
+}
+
+z = json.dumps(mydict)
+
+print(z)
+
+
+# Write JSON to file
+
+with open("data.json", "w") as file:
+    json.dump(mydict, file)
+
+
+# Read JSON from file
+
+with open("data.json", "r") as file:
+    data = json.load(file)
+    print(data)
